@@ -110,7 +110,8 @@ candiate position and key."
   ;; (interactive "cgo to Line: ")
   (let ((line-number (car (rassoc char linum-ace-alist))))
     (if line-number
-    (goto-line line-number))))
+    (goto-line line-number))
+    (back-to-indentation)))
 
 
 (defun linum-ace-jump-below (char)
@@ -118,14 +119,16 @@ candiate position and key."
   (let ((line-number (car (rassoc char linum-ace-alist))))
     (if line-number
     (goto-line line-number))
-    (next-line)))
+    (next-line)
+    (back-to-indentation)))
 
 (defun linum-ace-jump-previous (char)
   (interactive "cgo to Line: ")
   (let ((line-number (car (rassoc char linum-ace-alist))))
     (if line-number
     (goto-line line-number))
-    (previous-line)))
+    (previous-line)
+    (back-to-indentation)))
 
 (defun linum-ace-jump-column (char)
   "Jump to line with the same column."
@@ -139,8 +142,6 @@ candiate position and key."
   (interactive)
   (setq linum-format
     (if (eq linum-format 'dynamic) 'linum-ace 'dynamic)))
-
-
 
 (provide 'linum-ace)
 ;; linum-ace.el ends here.
