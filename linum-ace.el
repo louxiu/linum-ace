@@ -97,11 +97,35 @@ candiate position and key."
 
 ;;;; Commands
 
+(defun linum-ace-jump-branch (char)
+  (interactive "cgo to Line: ")
+  (cond ((or 
+          (and (> char 64) (< char 91)) 
+          (and (> char 96) (< char 123)))
+         (linum-ace-jump char))
+        ((= char 44) (call-interactively 'linum-ace-jump-previous))
+        ((= char 46) (call-interactively 'linum-ace-jump-below))))
+
 (defun linum-ace-jump (char)
-  (interactive "cGo to Line: ")
+  ;; (interactive "cgo to Line: ")
   (let ((line-number (car (rassoc char linum-ace-alist))))
     (if line-number
     (goto-line line-number))))
+
+
+(defun linum-ace-jump-below (char)
+  (interactive "cgo to Line: ")
+  (let ((line-number (car (rassoc char linum-ace-alist))))
+    (if line-number
+    (goto-line line-number))
+    (next-line)))
+
+(defun linum-ace-jump-previous (char)
+  (interactive "cgo to Line: ")
+  (let ((line-number (car (rassoc char linum-ace-alist))))
+    (if line-number
+    (goto-line line-number))
+    (previous-line)))
 
 (defun linum-ace-jump-column (char)
   "Jump to line with the same column."
