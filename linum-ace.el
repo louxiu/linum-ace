@@ -38,7 +38,7 @@
 ;;;; Faces
 
 (defface linum-ace-face
-  '((t :inherit linum :foreground "red"))
+  '((t :inherit linum :foreground "grey"))
   "Face for displaying ace-jump-line-mode like character on linum."
   :group 'linum)
 
@@ -92,7 +92,7 @@ candiate position and key."
       (or
        (cdr-safe (assoc line-number linum-ace-alist))
        ?\s)))
-    (propertize (format "%2s " (char-to-string linum-ace-char ))
+    (propertize (format "%s" (char-to-string linum-ace-char ))
         'face 'linum-ace-face)))
 
 ;;;; Commands

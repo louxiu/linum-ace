@@ -49,7 +49,6 @@ Following are the screenshot
 
 
 
-
 * Update
   (global-set-key "\C-j" 'linum-ace-jump-branch)  
   Use ', key' to jump to previous of line 'key' and '. key' to jump to
