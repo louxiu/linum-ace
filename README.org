@@ -25,7 +25,7 @@ If you are el-get user, you can simply create a recips to install linum-ace.
 
 : (:name linum-ace
 :        :type github
-:        :pkgname coldnew/linum-ace
+:        :pkgname louxiu/linum-ace
 :        :features linum-ace)
 
 * Usage
