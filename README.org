@@ -13,7 +13,7 @@ but you can use this plugin without install ace-jump-mode.
 
 Download linum-ace from Github
 
-: git clone https://github.com/coldnew/linum-ace.git
+: git clone https://github.com/louxiu/linum-ace.git
 
 Add linum-ace directory to your load path and then add following code to your dot emacs config.
 
@@ -40,7 +40,7 @@ default linum-format. If you want to always use linum-ace put following code in 
 
 Following are the screenshot
 
-[[https://github.com/coldnew/linum-ace/raw/master/screenshot/screenshot1.jpg]]
+[[https://github.com/louxiu/linum-ace/raw/master/screenshot/screenshot1.jpg]]
 
 
 
