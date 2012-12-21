@@ -63,6 +63,16 @@ lower case character and digits
    (setq linum-ace-keys (nconc (number-sequence ?0 ?9)
                    (number-sequence ?a ?z))")
 
+(setq linum-ace-keys (nconc (list ?^ ?& ?* ?\( ?\) ?_ 
+                            ?6 ?7 ?8 ?9 ?0 ?- ?=
+                            ?y ?u ?i ?o ?p ?\[ ?\]
+                            ?Y ?U ?I ?O ?P ?{
+                            ?h ?j ?k ?l ?\; ?'
+                            ?H ?J ?K ?L ?: ?\"
+                            ?b ?n ?m ?, ?. ?/
+                            ?B ?N ?M ?< ?> ??) ))
+
+(princ ??)
 
 ;;;; Advices
 (defadvice linum-update (around linum-ace-update activate)
@@ -97,17 +107,17 @@ candiate position and key."
 
 ;;;; Commands
 
-(defun linum-ace-jump-branch (char)
-  (interactive "cgo to Line: ")
-  (cond ((or 
-          (and (> char 64) (< char 91)) 
-          (and (> char 96) (< char 123)))
-         (linum-ace-jump char))
-        ((= char 44) (call-interactively 'linum-ace-jump-previous))
-        ((= char 46) (call-interactively 'linum-ace-jump-below))))
+;; (defun linum-ace-jump-branch (char)
+;;   (interactive "cgo to Line: ")
+;;   (cond ((or 
+;;           (and (> char 64) (< char 91)) 
+;;           (and (> char 96) (< char 123)))
+;;          (linum-ace-jump char))
+;;         ((= char 44) (call-interactively 'linum-ace-jump-previous))
+;;         ((= char 46) (call-interactively 'linum-ace-jump-below))))
 
 (defun linum-ace-jump (char)
-  ;; (interactive "cgo to Line: ")
+  (interactive "cgo to Line: ")
   (let ((line-number (car (rassoc char linum-ace-alist))))
     (if line-number
     (goto-line line-number))
